@@ -12,7 +12,6 @@ def extract_dj_database_urls(databases_as_string, DATABASES):
         databases_as_array = [db.strip() for db in databases_as_string.split(',')]
         for db in databases_as_array:
             db_config = dj_database_url.parse(db, conn_max_age=500)
-            print (db_config,'Here is the db_config')
             database_type = db.split(":")[0].strip()
             if (database_type == 'postgres'):
                 if 'OPTIONS' not in db_config:
